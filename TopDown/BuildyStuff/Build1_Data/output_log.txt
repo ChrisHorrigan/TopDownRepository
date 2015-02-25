@@ -1,0 +1,550 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1333]
+    Renderer: AMD Radeon R9 200 Series
+    Vendor:   ATI
+    VRAM:     2027 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.128 seconds
+desktop: 1440x900 60Hz; virtual: 1440x900 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Chris\Documents\TopDown\BuildyStuff\Build1_Data\Managed\System.dll (this message is harmless)
+this
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+entered scene
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 4.405685 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.921918 ms (FindLiveObjects: 0.027535 ms CreateObjectMapping: 0.012375 ms MarkObjects: 0.274117 ms  DeleteObjects: 0.011137 ms)
+
+Laserpointer.initialize
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+cam set over here
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+970
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+72
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+940
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+44
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+16
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+910
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+-12
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Dead
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+72
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+44
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+16
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+hit!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+-12
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Dead
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Reload started...
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Reloaded!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:InternalGetTransform ()
+  at UnityEngine.Component.get_transform () [0x00000] in <filename unknown>:0 
+  at TeamManager.DetectNoise (Vector3 center, Single radius) [0x00000] in <filename unknown>:0 
+  at PlayerController.MakeNoise (Single radius) [0x00000] in <filename unknown>:0 
+  at Gun.Shoot () [0x00000] in <filename unknown>:0 
+  at Gun.ShootContinuous () [0x00000] in <filename unknown>:0 
+  at PlayerController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
