@@ -42,7 +42,7 @@ public class PlayerController : Entity {
 		//inGame = true;
 		//cam = Camera.main;
 		HUD.enabled = true;
-		transform.position = startPoint;
+
 		}//
 	public void MakeNoise(float radius)
 	{
@@ -61,6 +61,7 @@ public class PlayerController : Entity {
 	{
 		yield return new WaitForSeconds (.25f);
 		base.Start ();
+		transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 		menu=GameObject.Find ("GameManager").GetComponent<PauseScript>();
 		god=GameObject.Find ("TeamManager").GetComponent<TeamManager>();
 		secondaryGun.Holster (hipSpot);//adsffghgh

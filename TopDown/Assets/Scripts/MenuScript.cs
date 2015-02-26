@@ -24,7 +24,7 @@ public class MenuScript : MonoBehaviour {
 		//sMag.enabled = false;
 		pSelected = false;
 		sSelected = false;
-		DontDestroyOnLoad (this.gameObject);
+		//DontDestroyOnLoad (this.gameObject);
 
 	}
 	public void setCurrentPrimary(string weaponName)
