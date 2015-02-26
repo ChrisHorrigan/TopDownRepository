@@ -6,7 +6,7 @@ using System.IO;
 
 
 public class GameControl : MonoBehaviour {
-
+	public bool[]levels;
 	public static GameControl control;
 	// Use this for initialization
 	void Awake()
@@ -26,13 +26,14 @@ public class GameControl : MonoBehaviour {
 		//This is a load combined with a save
 		if(File.Exists(Application.persistentDataPath+ "/gameProgress.dat"))
 		{
+			//print ("level complete stuff ran");
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file=File.Open (Application.persistentDataPath+"/gameProgress.dat",FileMode.Open);
 			GameProgress progress=(GameProgress)bf.Deserialize(file);
-			bool[] levels=progress.levelProgress;
+			levels=progress.levelProgress;
 			levels[level]=true;
-			progress.levelProgress=levels;
 			file.Close ();
+			Save (levels);
 		}
 		else
 			print("for some reason there is no file to update");
@@ -65,14 +66,14 @@ public class GameControl : MonoBehaviour {
 		}
 		else 
 		{
-			print (Application.persistentDataPath);//asdfasd
+			//print (Application.persistentDataPath);//asdfasd
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file=File.Open (Application.persistentDataPath+"/gameProgress.dat",FileMode.Open);
 			GameProgress progress=(GameProgress)bf.Deserialize(file);
-			bool[] levels=progress.levelProgress;
+			bool[] levelso=progress.levelProgress;
 
 			file.Close ();
-			return levels;//asdfasd
+			return levelso;//asdfasd
 		}
 	}
 

@@ -71,9 +71,9 @@ public class MenuScript : MonoBehaviour {
 	//void Start () {
 	//aadad
 	//}
-	public void LaunchLevel()
+	public void LaunchLevel(int toLaunch)
 	{
-		Application.LoadLevel ("Sandbox");
+		Application.LoadLevel (toLaunch);
 	}//sdafafdasdfdfgdfgsdfg
 	//
 

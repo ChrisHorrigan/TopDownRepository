@@ -1,14 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 	public bool[] levelsCompleted;
 	public bool[] levelsAvailable;
+	public Button[] launchButtons;
+	public bool primary;
+	public bool secondary;
 	// Use this for initialization
 	void Start () {
+		primary=false;
+		secondary=false;
 		levelsCompleted=GameControl.control.Load ();
 		GameControl.control.Save(levelsCompleted);
 		levelsAvailable=CreateAvailable(levelsCompleted);
+
+	}
+	void Update()
+	{
+		ButtonStati ();
+	}
+	public void primarySelected()
+	{
+		primary = true;
+	}
+	public void secondarySelected()
+	{
+		secondary = true;//
+	}
+	void ButtonStati()
+	{
+		for(int i=0;i<launchButtons.Length;i++)
+		{
+			if(levelsCompleted[i])
+				launchButtons[i].GetComponentInChildren<Text>().color=Color.green;
+			if(levelsAvailable[i]&&secondary&&primary)
+				launchButtons[i].interactable=true;
+			else
+				launchButtons[i].interactable=false;
+		}
 	}
 	bool[] CreateAvailable(bool[]completed)
 	{
@@ -25,8 +55,5 @@ public class LevelManager : MonoBehaviour {
 		}
 		return temp;//asdfadsfffff
 	}
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

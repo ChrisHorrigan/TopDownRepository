@@ -10,7 +10,7 @@ public class LaunchKey : MonoBehaviour {
 	void Start () {
 		primary = false;
 		secondary = false;
-		ready = false;
+		ready = false;//
 	}
 	public void primarySelected()
 	{

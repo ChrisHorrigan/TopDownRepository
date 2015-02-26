@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;/// <summary>
+/// Pause script.
+/// </summary>
 public class PauseScript : MonoBehaviour {
 	PlayerController player;
 	public Canvas canvas;
 	public Canvas deathCanvas;
+	public Canvas winCanvas;
 	public bool paused;
-	// Use this for initialization
+
 	void Start () {
 		canvas.enabled=false;
 		paused=false;
 		deathCanvas.enabled=false;
+		winCanvas.enabled=false;
 		player=GameObject.Find ("Player").GetComponent<PlayerController>();
 
 		player.enabled=true;
@@ -35,9 +41,18 @@ public class PauseScript : MonoBehaviour {
 		else if (Input.GetButtonDown("Pause")&&paused)
 			Resume ();
 	}
-	public void DeathScreen()
+	public void DeathScreen()//would have been better to enable panels rather than canvasses but whatever
 	{
 		deathCanvas.enabled=true;
+		player.enabled=false;//asdff
+		if(player.gameObject.GetComponentInChildren<LaserScript>()!=null)
+			player.gameObject.GetComponentInChildren<LaserScript>().enabled=false;
+		Time.timeScale=0;
+		Screen.showCursor=true;
+	}
+	public void Win()
+	{
+		winCanvas.enabled=true;
 		player.enabled=false;//asdff
 		if(player.gameObject.GetComponentInChildren<LaserScript>()!=null)
 			player.gameObject.GetComponentInChildren<LaserScript>().enabled=false;

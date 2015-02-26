@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 public class TeamManager : MonoBehaviour {
-
+	public int levelID;
+	public enum Objective {Clear,VIP,Hostage};
+	public Objective obj;
 	private Vector3 lastKnownPosition;
 	public List<Enemy> minions;
 	private Enemy[] basic;
+	public PauseScript pause;
 	void Start()
 	{
 		basic=gameObject.GetComponentsInChildren<Enemy>();//aaa
@@ -49,6 +52,12 @@ public class TeamManager : MonoBehaviour {
 	public void LoseMember(Enemy e)
 	{
 		minions.Remove(e);
+		if(minions.Count<=0&&obj==Objective.Clear)
+		{
+
+			GameControl.control.CompleteLevel(levelID);
+			pause.Win ();
+		}
 	}
 
 
