@@ -34,7 +34,7 @@ public class MenuScript : MonoBehaviour {
 		if (!currentPrimary.Equals (selectedPrimary) && selectedPrimary != null)
 						primaries.HideToggles ();
 				else
-						primaries.ShowToggles ();
+						primaries.ShowToggles ();//will have to be more specific as not all primaries can have all attachments
 	}
 	public void setCurrentSecondary (string weaponName)
 	{

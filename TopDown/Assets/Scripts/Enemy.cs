@@ -27,10 +27,12 @@ public class Enemy : Entity {
 	private Quaternion targetRotation;
 	private Vector3 newForward;
 	private Vector3 oldForward;
+	private bool returningToPost;
 	void Start()
 	{
 		base.Start ();
 		lookingAround=false;
+		returningToPost=false;
 		basic=gameObject.GetComponentsInChildren<Node>();
 		nextNode=0;
 		foreach(Node n in basic)
@@ -67,6 +69,7 @@ public class Enemy : Entity {
 				{
 					if(hit.collider.gameObject==target.gameObject){//yup, seeing the player
 						StopCoroutine("LookAround");
+						StopCoroutine("LookAroundIdle");
 						lookingAround=false;
 						//moving=false;//this makes him not aim at the player at close range ^^^  Won't be a problem when the model is right
 						//fightingPlayer=true;
@@ -105,8 +108,12 @@ public class Enemy : Entity {
 	}
 	public void CallToInvestigate()
 	{
-		if(status!=Status.combat)
+		if(status!=Status.combat){
+			StopCoroutine("LookAround");
+			StopCoroutine("LookAroundIdle");
+			lookingAround=false;
 			status=Status.investigating;
+		}
 	}
 	public void MoveOn()
 	{
@@ -127,6 +134,35 @@ public class Enemy : Entity {
 	{
 		alarmed=true;
 		//move speed increases
+	}
+	public override void TakeDamage(float damage,Vector3 direction)
+	{
+		base.TakeDamage(damage,direction);
+		if(status==Status.patrol)
+		{
+			StopCoroutine("LookAround");
+			StopCoroutine("LookAroundIdle");
+			lookingAround=false;
+			if(!lookingAround)
+				StartCoroutine("CheckBack",direction);
+		}
+		//transform.forward=direction; this was just to make sure the direction detection works
+	}
+
+	public IEnumerator CheckBack(Vector3 direction)
+	{
+		float elapsedTime=0f;
+		lookingAround=true;
+		newForward=direction;
+		oldForward=transform.forward;
+		while(elapsedTime<=1f)
+		{
+			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+			elapsedTime+=Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		lookingAround=false;
+
 	}
 	public override void Die ()
 	{
@@ -175,7 +211,7 @@ public class Enemy : Entity {
 
 	//	yield return new WaitForSeconds(1f);
 		elapsedTime=0f;
-		newForward=Quaternion.AngleAxis(-180,Vector3.up)*transform.forward;
+		newForward=Quaternion.AngleAxis(179,Vector3.down)*transform.forward;
 		oldForward=transform.forward;
 
 
@@ -188,8 +224,9 @@ public class Enemy : Entity {
 	//	transform.forward=newForward;
 
 	//	yield return new WaitForSeconds(1f);
+
 		elapsedTime=0f;
-		newForward=Quaternion.AngleAxis(90,Vector3.up)*transform.forward;
+		newForward=Quaternion.AngleAxis(91,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
 		while(elapsedTime<=1.5f)
 		{
@@ -205,6 +242,76 @@ public class Enemy : Entity {
 
 		lookingAround=false;
 	}
+//	IEnumerator ReturnToPost()
+//	{
+//		returningToPost=true;
+//		Vector3 oldForward=transform.forward;
+//		Vector3 targetForward=nodes[nextNode].transform.forward;//this will have to get lerped of coursegggg
+//		float elapsedTime=0f;
+//		while(elapsedTime<=1f){
+//			transform.forward=Vector3.Slerp (oldForward,targetForward,Time.deltaTime);
+//			elapsedTime+=Time.deltaTime;
+//			yield return new WaitForEndOfFrame();
+//		}
+//		returningToPost=false;
+//	}
+	IEnumerator LookAroundIdle()
+	{
+		float elapsedTime=0f;
+		lookingAround=true;
+		newForward=nodes[nextNode].transform.forward;
+		oldForward=transform.forward;
+		while(elapsedTime<=1f)
+		{
+			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+			elapsedTime+=Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		elapsedTime=0f;
+		newForward=Quaternion.AngleAxis(45,Vector3.up)*transform.forward;
+		oldForward=transform.forward;
+		while(elapsedTime<=1.5f)
+		{
+			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+			elapsedTime+=Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		//	transform.forward=newForward;asddasas
+		
+		//	yield return new WaitForSeconds(1f);fffffj
+		elapsedTime=0f;
+		newForward=Quaternion.AngleAxis(270,Vector3.up)*transform.forward;
+		oldForward=transform.forward;
+		
+		
+		while(elapsedTime<=2f)
+		{
+			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+			elapsedTime+=Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		//	transform.forward=newForward;
+		
+		//	yield return new WaitForSeconds(1f);
+		
+		elapsedTime=0f;
+		newForward=Quaternion.AngleAxis(45,Vector3.up)*transform.forward;
+		oldForward=transform.forward;
+		while(elapsedTime<=1.5f)
+		{
+			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+			elapsedTime+=Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		//	transform.forward=newForward;
+		
+		//	yield return new WaitForSeconds(1f);
+		agent.updateRotation=true;
+		status=Status.patrol;
+		
+		lookingAround=false;
+	}
 
 	void Update()
 	{
@@ -212,11 +319,19 @@ public class Enemy : Entity {
 		if(status==Status.patrol)
 		{
 			agent.SetDestination(nodes[nextNode].gameObject.transform.position);
+			if(nodes.Count>1){
+			
 			if(Vector3.Distance(transform.position,nodes[nextNode].transform.position)<1f){
 
 				MoveOn();
 			}
+			}
+			else if(Vector3.Distance(transform.position,nodes[nextNode].transform.position)<1f)
+				if(!lookingAround)
+				{
 
+				StartCoroutine("LookAroundIdle");
+				}
 		}
 		else if (status==Status.combat){
 			targetRotation = Quaternion.LookRotation (boss.LastKnownPosition-new Vector3(transform.position.x,0,transform.position.z));

@@ -17,7 +17,8 @@ public class Entity : MonoBehaviour {
 		gun.holder=this.gameObject;
 		}//
 	public virtual void Update(){
-//		if (controller.velocity.magnitude != 0) {//
+
+//		if (controller.velocity.magnitude != 0) {//fff
 //						gun.minSpread = gun.mainMaxSpread / 2;
 //						gun.maxSpread = gun.mainMaxSpread + 5f;
 //
@@ -28,13 +29,13 @@ public class Entity : MonoBehaviour {
 //		
 //				}//
 	}
-	public virtual void TakeDamage(float damage)//virtual lets us override it in subclasses  asdfasdfasdfa
+	public virtual void TakeDamage(float damage,Vector3 direction)//virtual lets us override it in subclasses  asdfasdfasdfa
 	{//
 		print ("hit!");
 		health -= damage;
 		Debug.Log (health);
 		if (health <= 0)
-			Die ();//
+			Die ();
 	}
 	public virtual void Die()
 	{

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour {
 	//This class would be used by AI as well so no references to input in here
@@ -14,14 +15,18 @@ public class Gun : MonoBehaviour {
 	public LayerMask collisionMask;
 	public Transform bulletSource;
 	public float rpm;
-	public enum GunType {Semi,Burst,Auto};
+	public enum GunType {Semi,Burst,Auto,Shotgun};
 	public enum GunClass{Primary,Secondary};
 	public GunClass gunClass;
 	public GunType gunType;
 	public Transform shellEjectionPoint;
-
+	public Transform[] bulletSources;
 	public Rigidbody shell;
-	private LineRenderer tracer;
+
+
+	public List<LineRenderer> tracer;
+
+
 	private Vector3 bPath;
 	private Quaternion spread;
 	public float spreadAngle;
@@ -49,6 +54,7 @@ public class Gun : MonoBehaviour {
 	private bool laserEquipped;
 	public Transform laserPointer;
 	private LaserScript laserRef;
+
 	//public Transform laserT;
 
 	//sdfaf
@@ -63,8 +69,15 @@ public class Gun : MonoBehaviour {
 		spreadAngle = mainMinSpread;
 		//HUD.text = magSize + " | " + totalAmmo;
 		secondsBetweenShots = 60 / rpm;
-		if (GetComponent<LineRenderer> ())
-						tracer = GetComponent<LineRenderer> ();
+		tracer=new List<LineRenderer>();
+		foreach (Transform t in bulletSources)
+		{
+			tracer.Add (t.gameObject.GetComponent<LineRenderer>());
+		}
+		foreach(LineRenderer L in tracer){
+			L.enabled=false;
+		}
+		//tracer = GetComponentsInChildren<LineRenderer> ();
 		magazine = magSize;
 
 		}
@@ -111,23 +124,7 @@ public class Gun : MonoBehaviour {
 		}
 
 	}
-
-//	public void Attach(string what)
-//	{
-//		print ("attached");
-//		GameObject attachment = GameObject.Find (what);
-//		DontDestroyOnLoad (attachment);
-//		if(what.Equals("LaserPointerPrimary"))
-//		{
-//			attachment.transform.position=laserSpot.position;
-//			attachment.transform.rotation=laserSpot.rotation;
-//			attachment.transform.parent=laserSpot;
-//			laserPointer=attachment.GetComponent<LaserScript>();
-//			laserEquipped=true;
-//		}
-//
-//	}
-
+	
 	public void Holster(Transform where)
 	{
 		if(laserEquipped)
@@ -154,43 +151,32 @@ public class Gun : MonoBehaviour {
 	}
 
 	public void Shoot(){
-		if (CanShoot ()) {
-						
-						//have to modify both x and z
-						if(holder.name=="Player")
-							holder.GetComponent<PlayerController>().MakeNoise(noiseRadius); //make noise that the AI will want to investigate
-						
-						Recoil ();
-						//	print (bPath.ToString());
-						magazine--;
-						//HUD.text = magazine + " | " + totalAmmo;
-						//Debug.Log (magazine+" | "+totalAmmo);
-						Ray ray = new Ray (bulletSource.position, bPath);
-		
-						//Ray ray = new Ray (bulletSource.position, bulletSource.forward);
-						RaycastHit hit;
-						float shotDistance = 20;
-						if (Physics.Raycast (ray, out hit, shotDistance, collisionMask)) {
-								shotDistance = hit.distance;
-								if (hit.collider.GetComponent<Entity> ()&&!hit.collider.isTrigger) {
-										hit.collider.GetComponent<Entity> ().TakeDamage (damage);	
-								}
-						}
-						//Debug.DrawRay (ray.origin, ray.direction * shotDistance, Color.red, 1);
-						nextPossibleShootTime = Time.time + secondsBetweenShots;
-						if(!silenced)//SILENCER AFFECTING SHOT SOUNDS
-						audio.Play ();
-						if (tracer) {
-								StartCoroutine ("RenderTracer", ray.direction * shotDistance);
-						}
-						Rigidbody newShell = Instantiate (shell, shellEjectionPoint.position, transform.rotation) as Rigidbody;
-						newShell.AddForce (shellEjectionPoint.forward * Random.Range (150, 200) + bulletSource.forward * Random.Range (-10f, 10f));
-						//somewhat random shell dropping trajectories          ^
+			if (CanShoot ()) {
+				if(holder.name=="Player")
+					holder.GetComponent<PlayerController>().MakeNoise(noiseRadius); //make noise that the AI will want to investigate
+				magazine--;
+				foreach(LineRenderer l in tracer){
+					float shotDistance = 20;
+					Recoil ();
+					Ray ray = new Ray (bulletSource.position, bPath);
 
-				} 
-
-		//else if (!CanShoot()&&!reloading)
-			//play a dry fire noise
+					RaycastHit hit;
+					
+					if (Physics.Raycast (ray, out hit, shotDistance, collisionMask)) {
+						shotDistance=hit.distance;
+						if (hit.collider.GetComponent<Entity> ()&&!hit.collider.isTrigger) {
+							hit.collider.GetComponent<Entity> ().TakeDamage (damage/tracer.Count,ray.direction*-1);	//later also pass in direction so the AI can react
+						}
+					}
+				StartCoroutine(RenderTracer (ray.direction*shotDistance,l));//asdfasd
+				}
+				nextPossibleShootTime = Time.time + secondsBetweenShots;
+				if(!silenced)//SILENCER AFFECTING SHOT SOUNDS
+					audio.Play ();
+				Rigidbody newShell = Instantiate (shell, shellEjectionPoint.position, transform.rotation) as Rigidbody;
+				newShell.AddForce (shellEjectionPoint.forward * Random.Range (150, 200) + bulletSource.forward * Random.Range (-10f, 10f));
+							
+			}
 	}
 	public void Recoil()
 	{
@@ -237,7 +223,7 @@ public class Gun : MonoBehaviour {
 		}
 	}
 	public void ShootContinuous(){
-		if (gunType == GunType.Auto) {
+		if (gunType != GunType.Semi) {
 			Shoot ();
 		}
 	}//
@@ -251,11 +237,13 @@ public class Gun : MonoBehaviour {
 						canShoot = false;
 		return canShoot;
 	}
-	IEnumerator RenderTracer(Vector3 hitPoint){
+	IEnumerator RenderTracer(Vector3 hitPoint,LineRenderer tracer){//performance problems...
+
 		tracer.enabled = true;
 		tracer.SetPosition (0, bulletSource.position);
 		tracer.SetPosition (1, bulletSource.position+hitPoint);
 		//yield return null;
+	
 		yield return new WaitForSeconds(.025f);//null for just a frame, but that's inconsistent
 		tracer.enabled = false;
 		}//
