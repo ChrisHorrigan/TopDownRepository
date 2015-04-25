@@ -14,6 +14,7 @@ public class PlayerController : Entity {
 	private float radius;
 	public Transform backSpot;
 	public Transform hipSpot;
+	private Animator animator;
 	//public Vector3 startPoint;
 	public Gun secondaryGun;
 	public bool inGame;
@@ -23,10 +24,11 @@ public class PlayerController : Entity {
 	public CharacterController controller;
 	public TeamManager god;
 	private PauseScript menu;
+	public float speed;
 	void Awake()
 	{
 		DontDestroyOnLoad (this.gameObject);
-
+		animator=GetComponent<Animator>();
 	}
 	public void EnterScene()
 	{
@@ -70,6 +72,7 @@ public class PlayerController : Entity {
 		cam = GameObject.Find("GameCam").GetComponent<Camera>();
 		}
 	void Start () {
+		print ("ran");
 		controller = GetComponent<CharacterController>();
 		inGame = false;
 		HUD = GameObject.Find ("AmmoText").GetComponent<GUIText> ();
@@ -175,10 +178,16 @@ public class PlayerController : Entity {
 		transform.eulerAngles = Vector3.up*targetRotation.eulerAngles.y;//infinitely faster
 		Vector3 input = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));//gets input
 		Vector3 motion = input;
+
 		motion*=(Mathf.Abs (input.x)==1&&Mathf.Abs (input.z)==1)?.7f:1;//there's another way, look into normalizing
+		speed=motion.magnitude;
+		if(speed>0)
+			animator.SetBool("Moving",true);
+		else
+			animator.SetBool("Moving",false);
 	motion*=(Input.GetButton("Run"))?runSpeed:walkSpeed; //faster if running
 		motion += Vector3.up * -8; //gravity (only useful for jumping)
-		
+
 		controller.Move(motion*Time.deltaTime);//actually move
 
 		}

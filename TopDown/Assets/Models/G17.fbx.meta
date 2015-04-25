@@ -1,8 +1,18 @@
 fileFormatVersion: 2
-guid: 26ddd96c7c866694088942965176009d
+guid: 5bd2412527b379a45a8fbb0dc6b72f60
 ModelImporter:
   serializedVersion: 16
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Cube
+    100002: //RootNode
+    100004: Lamp
+    400000: Cube
+    400002: //RootNode
+    400004: Lamp
+    2300000: Cube
+    3300000: Cube
+    4300000: Cube
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -11,6 +21,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -21,7 +32,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
