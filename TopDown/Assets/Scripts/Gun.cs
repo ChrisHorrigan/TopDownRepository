@@ -92,6 +92,8 @@ public class Gun : MonoBehaviour {
 	void Update()//adfdfss
 	{//
 		toTarget = pointAt - bulletSource.position;
+		//NEW:
+		toTarget=toTarget/toTarget.magnitude;
 		spreadAngle = Mathf.MoveTowards (spreadAngle , minSpread, recover*Time.deltaTime);  //movetowards is simply not working
 	
 	}
@@ -158,7 +160,7 @@ public class Gun : MonoBehaviour {
 				foreach(LineRenderer l in tracer){
 					float shotDistance = 20;
 					Recoil ();
-					Ray ray = new Ray (bulletSource.position, bPath);
+					Ray ray = new Ray (bulletSource.position, bPath*20);
 
 					RaycastHit hit;
 					
@@ -227,7 +229,7 @@ public class Gun : MonoBehaviour {
 			Shoot ();
 		}
 	}//
-	private bool CanShoot(){
+	public bool CanShoot(){
 		bool canShoot = true;
 		if (Time.time < nextPossibleShootTime)
 						canShoot = false;

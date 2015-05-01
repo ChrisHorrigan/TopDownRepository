@@ -59,7 +59,7 @@ public class PlayerController : Entity {
 	{
 		secondaryGun= GameObject.Find (whatGun).GetComponent<Gun>();
 	}
-	IEnumerator setCam()
+	IEnumerator setCam()//dffh
 	{
 		yield return new WaitForSeconds (.25f);
 		base.Start ();
@@ -115,7 +115,9 @@ public class PlayerController : Entity {
 						crossY = mousePos.y;
 
 						mousePos = cam.ScreenToWorldPoint (new Vector3 (mousePos.x, mousePos.y, cam.transform.position.y - transform.position.y));
-						gun.pointAt = mousePos;
+			gun.pointAt.x = mousePos.x;
+			gun.pointAt.z=mousePos.z;
+			gun.pointAt.y=gun.bulletSource.position.y;
 						/*if (Input.GetKey (KeyCode.K))
 						Die ();*/
 						if (!gun.reloading)
@@ -128,24 +130,50 @@ public class PlayerController : Entity {
 						}//
 
 						if (Input.GetButtonDown ("Shoot")) {
+				if(gun.CanShoot())
+				{
+					if(gun.gunClass==Gun.GunClass.Primary)
+						animator.SetTrigger("ShootAR");
+					else if(gun.gunClass==Gun.GunClass.Secondary)
+						animator.SetTrigger("ShootPistol");
+				}
 								gun.Shoot ();
-						} else if (Input.GetButton ("Shoot")) {
+								
+							
+								
+								
+						} 
+			else if (Input.GetButton ("Shoot")) {
+				if(gun.CanShoot())
+				{
+					if(gun.gunClass==Gun.GunClass.Primary)
+						animator.SetTrigger("ShootAR");
+					else if(gun.gunClass==Gun.GunClass.Secondary)
+						animator.SetTrigger("ShootPistol");
+				}
 								gun.ShootContinuous ();
+
 						}
 
 
 
 						if (Input.GetKeyDown (KeyCode.Alpha1)) {
 								if (gun.gunClass != Gun.GunClass.Primary) {
+
 										HolsterGun (gun);
+
 										ReadyGun (primaryGun);
+					animator.SetFloat("WeaponID",0);
 										gun = primaryGun;
 								}
-						}
+						}//
 						if (Input.GetKeyDown (KeyCode.Alpha2)) {
 								if (gun.gunClass != Gun.GunClass.Secondary) {
+
 										HolsterGun (gun);
+
 										ReadyGun (secondaryGun);
+					animator.SetFloat("WeaponID",1);
 										gun = secondaryGun;
 								}
 						}
@@ -175,7 +203,7 @@ public class PlayerController : Entity {
 
 		targetRotation = Quaternion.LookRotation (mousePos-new Vector3(transform.position.x,0,transform.position.z));
 		//transform.eulerAngles=Vector3.up*Mathf.MoveTowardsAngle(transform.eulerAngles.y,targetRotation.eulerAngles.y,rotationSpeed*Time.deltaTime);
-		transform.eulerAngles = Vector3.up*targetRotation.eulerAngles.y;//infinitely faster
+		transform.eulerAngles = Vector3.up*targetRotation.eulerAngles.y;//faster
 		Vector3 input = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));//gets input
 		Vector3 motion = input;
 

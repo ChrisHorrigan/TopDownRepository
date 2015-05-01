@@ -178,11 +178,11 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Armature
-        weight: 1
+        weight: 0
       - path: Armature/Root
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest
         weight: 1
       - path: Armature/Root/Belly/Chest/Bicep_L
@@ -206,21 +206,21 @@ ModelImporter:
       - path: Armature/Root/Belly/Chest/Neck/Head
         weight: 1
       - path: Armature/Root/Belly/UpperLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_L/LowerLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R/LowerLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L/Foot_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R/Foot_R
-        weight: 1
+        weight: 0
       - path: Cube
         weight: 1
       maskType: 0
@@ -252,11 +252,11 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Armature
-        weight: 1
+        weight: 0
       - path: Armature/Root
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest
         weight: 1
       - path: Armature/Root/Belly/Chest/Bicep_L
@@ -280,21 +280,21 @@ ModelImporter:
       - path: Armature/Root/Belly/Chest/Neck/Head
         weight: 1
       - path: Armature/Root/Belly/UpperLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_L/LowerLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R/LowerLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L/Foot_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R/Foot_R
-        weight: 1
+        weight: 0
       - path: Cube
         weight: 1
       maskType: 0
@@ -326,11 +326,11 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Armature
-        weight: 1
+        weight: 0
       - path: Armature/Root
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest
         weight: 1
       - path: Armature/Root/Belly/Chest/Bicep_L
@@ -354,21 +354,21 @@ ModelImporter:
       - path: Armature/Root/Belly/Chest/Neck/Head
         weight: 1
       - path: Armature/Root/Belly/UpperLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_L/LowerLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R/LowerLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L/Foot_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R/Foot_R
-        weight: 1
+        weight: 0
       - path: Cube
         weight: 1
       maskType: 0
@@ -400,11 +400,11 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Armature
-        weight: 1
+        weight: 0
       - path: Armature/Root
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest
         weight: 1
       - path: Armature/Root/Belly/Chest/Bicep_L
@@ -428,21 +428,21 @@ ModelImporter:
       - path: Armature/Root/Belly/Chest/Neck/Head
         weight: 1
       - path: Armature/Root/Belly/UpperLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_L/LowerLeg_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_R/LowerLeg_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_L/Foot_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Leg_Control_R/Foot_R
-        weight: 1
+        weight: 0
       - path: Cube
         weight: 1
       maskType: 0
@@ -548,33 +548,33 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Armature
-        weight: 1
+        weight: 0
       - path: Armature/Root
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_L/Forearm_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_L/Forearm_L/Hand_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_L/Forearm_L/Hand_L/Fingers_L
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_R/Forearm_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_R/Forearm_R/Hand_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Bicep_R/Forearm_R/Hand_R/Fingers_R
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Neck
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/Chest/Neck/Head
-        weight: 1
+        weight: 0
       - path: Armature/Root/Belly/UpperLeg_L
         weight: 1
       - path: Armature/Root/Belly/UpperLeg_L/LowerLeg_L

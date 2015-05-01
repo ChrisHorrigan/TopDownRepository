@@ -60,16 +60,20 @@ public class Enemy : Entity {
 	void OnTriggerStay (Collider other)
 	{
 		if (other.gameObject == target.gameObject) {//this checks if the player is within the radius of the enemy
+
 			Vector3 direction=target.position-transform.position;
 			float angle = Vector3.Angle(direction,transform.forward);
 			if(angle<=FOV/2)//this means the player is within the cone
 			{
+
 				RaycastHit hit;
 				if(Physics.Raycast(transform.position,direction,out hit,range, layermasko))//raycast hit something, could be a wall
 				{
+
 					if(hit.collider.gameObject==target.gameObject){//yup, seeing the player
-						StopCoroutine("LookAround");
+						StopCoroutine("LookAround");//fffff
 						StopCoroutine("LookAroundIdle");
+
 						lookingAround=false;
 						//moving=false;//this makes him not aim at the player at close range ^^^  Won't be a problem when the model is right
 						//fightingPlayer=true;
