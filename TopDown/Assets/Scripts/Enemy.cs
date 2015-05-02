@@ -28,9 +28,14 @@ public class Enemy : Entity {
 	private Vector3 newForward;
 	private Vector3 oldForward;
 	private bool returningToPost;
+
+	private Animator animator;
+
 	void Start()
 	{
 		base.Start ();
+		animator=GetComponent<Animator>();
+		animator.SetFloat("WeaponID",0);
 		lookingAround=false;
 		returningToPost=false;
 		basic=gameObject.GetComponentsInChildren<Node>();
@@ -82,8 +87,9 @@ public class Enemy : Entity {
 
 						boss.LastKnownPosition=target.position;
 
-						if(angle<=15f)
-						gun.ShootContinuous();
+						if(angle<=15f){
+							animator.SetTrigger("ShootAR");
+							gun.ShootContinuous();}
 						if(gun.magazine==0&&!gun.reloading)
 							gun.StartReload();
 
@@ -320,6 +326,10 @@ public class Enemy : Entity {
 	void Update()
 	{
 
+		if(agent.velocity.magnitude!=0)
+			animator.SetBool("Moving",true);
+		else
+			animator.SetBool ("Moving",false);
 		if(status==Status.patrol)
 		{
 			agent.SetDestination(nodes[nextNode].gameObject.transform.position);
