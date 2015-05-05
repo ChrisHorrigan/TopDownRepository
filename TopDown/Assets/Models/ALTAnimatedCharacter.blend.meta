@@ -27,6 +27,7 @@ ModelImporter:
     100042: Root
     100044: UpperLeg_L
     100046: UpperLeg_R
+    100048: GunHold
     400000: //RootNode
     400002: Armature
     400004: Belly
@@ -51,6 +52,7 @@ ModelImporter:
     400042: Root
     400044: UpperLeg_L
     400046: UpperLeg_R
+    400048: GunHold
     4300000: Cube
     7400000: Default Take
     7400002: Hold_AR
