@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour {
 
 	public GameObject holder;
 
-
+	public bool glitching=false;
 	public Transform silencer;
 	private bool silenced;
 	private bool laserEquipped;
@@ -61,6 +61,7 @@ public class Gun : MonoBehaviour {
 	/// <summary>
 	/// S/	/// </summary>
 	void Start(){//
+		glitching=false;
 		laserRef = laserPointer.GetComponent<LaserScript> ();
 		laserEquipped = false;  
 		silenced = false;
@@ -91,6 +92,13 @@ public class Gun : MonoBehaviour {
 		}
 	void Update()//adfdfss
 	{//
+		if(glitching&&active){
+			laserRef.lightOn=false;
+			//print ("glitching");//fdasfsdfads
+		}
+
+		else if(active&&!glitching)
+			laserRef.lightOn=true;
 		toTarget = pointAt - bulletSource.position;
 		//NEW:
 		toTarget=toTarget/toTarget.magnitude;
@@ -132,6 +140,7 @@ public class Gun : MonoBehaviour {
 		if(laserEquipped)
 		laserRef.lightOn = false;
 		active = false;
+		glitching=false;
 		transform.position = where.position;
 		transform.rotation = where.rotation;
 		transform.parent = where;
@@ -139,6 +148,7 @@ public class Gun : MonoBehaviour {
 	}
 	public void ReadyUp(Transform where)
 	{
+
 		if (laserEquipped) {
 			laserRef.Initialize();////
 			laserRef.lightOn = true;
@@ -150,6 +160,7 @@ public class Gun : MonoBehaviour {
 		transform.position = where.position;
 		transform.rotation = where.rotation;
 		transform.parent = where;
+
 	}
 
 	public void Shoot(){
@@ -230,7 +241,11 @@ public class Gun : MonoBehaviour {
 		}
 	}//
 	public bool CanShoot(){
-		bool canShoot = true;
+		bool canShoot;
+		if(!glitching)
+		 canShoot = true;
+		else
+			 canShoot=false;
 		if (Time.time < nextPossibleShootTime)
 						canShoot = false;
 		if (magazine == 0)
@@ -242,11 +257,13 @@ public class Gun : MonoBehaviour {
 	IEnumerator RenderTracer(Vector3 hitPoint,LineRenderer tracer){//performance problems...
 
 		tracer.enabled = true;
+		bulletSource.gameObject.GetComponent<Light>().enabled=true;
 		tracer.SetPosition (0, bulletSource.position);
 		tracer.SetPosition (1, bulletSource.position+hitPoint);
 		//yield return null;
 	
-		yield return new WaitForSeconds(.025f);//null for just a frame, but that's inconsistent
+		yield return null;//null for just a frame, but that's inconsistent .025f
+		bulletSource.gameObject.GetComponent<Light>().enabled=false;
 		tracer.enabled = false;
 		}//
 //	IEnumerator Recovery(){////

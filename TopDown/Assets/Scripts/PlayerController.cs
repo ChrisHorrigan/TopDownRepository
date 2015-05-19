@@ -15,6 +15,7 @@ public class PlayerController : Entity {
 	public Transform backSpot;
 	public Transform hipSpot;
 	private Animator animator;
+	public Transform eyes;
 	//public Vector3 startPoint;
 	public Gun secondaryGun;
 	public bool inGame;
@@ -25,6 +26,7 @@ public class PlayerController : Entity {
 	public TeamManager god;
 	private PauseScript menu;
 	public float speed;
+	public LayerMask checkMask;//asdfads
 	void Awake()
 	{
 		DontDestroyOnLoad (this.gameObject);
@@ -33,7 +35,7 @@ public class PlayerController : Entity {
 	public void EnterScene()
 	{
 		//primaryGun = GameObject.Find ("M16").GetComponent<Gun>();
-		//secondaryGun = GameObject.Find ("G17").GetComponent<Gun>();fd
+		//secondaryGun = GameObject.Find ("G17").GetComponent<Gun>();fdfff
 
 		primaryGun.holder = this.gameObject;
 		secondaryGun.holder = this.gameObject;
@@ -108,6 +110,7 @@ public class PlayerController : Entity {
 				gun.maxSpread=gun.mainMaxSpread;
 				
 			}//sdfa
+
 						Screen.showCursor = false;
 						mousePos = Input.mousePosition;
 
@@ -120,6 +123,7 @@ public class PlayerController : Entity {
 			gun.pointAt.y=gun.bulletSource.position.y;
 						/*if (Input.GetKey (KeyCode.K))
 						Die ();*/
+
 						if (!gun.reloading)
 								HUD.text = gun.magazine + " | " + gun.totalAmmo;
 						else
@@ -179,8 +183,11 @@ public class PlayerController : Entity {
 						}
 						//
 						//
+
 						ControlMouse ();
+			GlitchCheck();
 				}
+
 		//ControlWASD ();
 	}
 
@@ -197,7 +204,21 @@ public class PlayerController : Entity {
 	{
 			toReady.ReadyUp (handSpot);
 	}
-
+	void GlitchCheck()
+	{
+		Vector3 direction = eyes.position-gun.bulletSource.position;
+		direction=direction/direction.magnitude;
+		Ray ray = new Ray(eyes.position,direction*-5);//*20
+		//Debug.DrawRay(eyes.position,direction*-5);
+		RaycastHit hit;///ffffff
+		if(Physics.Raycast(ray,out hit,checkMask)){
+			//print (hit.collider.ToString());
+			if(hit.distance<Vector3.Distance(eyes.position,gun.bulletSource.position))
+				gun.glitching=true;
+			else
+			gun.glitching=false;
+		}
+	}
 	void ControlMouse(){//movement with WASD, look with mouse
 
 
