@@ -3,6 +3,7 @@ using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : Entity {
 	public GUIText HUD;
+	public GUIText HealthBar;
 	public Texture crosshairs;
 	private Quaternion targetRotation;
 	public float walkSpeed = 5;
@@ -46,6 +47,7 @@ public class PlayerController : Entity {
 		//inGame = true;
 		//cam = Camera.main;
 		HUD.enabled = true;
+		HealthBar.enabled=true;
 
 		}//
 	public void MakeNoise(float radius)
@@ -79,7 +81,10 @@ public class PlayerController : Entity {
 		inGame = false;
 		HUD = GameObject.Find ("AmmoText").GetComponent<GUIText> ();
 		HUD.enabled = false;
+		HealthBar=GameObject.Find ("HealthText").GetComponent<GUIText>();
+		HealthBar.enabled=false;
 		DontDestroyOnLoad (HUD.gameObject);
+		DontDestroyOnLoad(HealthBar.gameObject);//asdfasdfff
 		startPoint.x = 10;
 		startPoint.z = 10;
 		startPoint.y = 2;
@@ -100,6 +105,8 @@ public class PlayerController : Entity {
 	void Update () {
 		if (inGame) {
 						base.Update ();//
+
+			HealthBar.text=health.ToString ();
 			if (controller.velocity.magnitude != 0) {//
 				gun.minSpread = gun.mainMaxSpread / 2;
 				gun.maxSpread = gun.mainMaxSpread + walkPenalty;
@@ -187,6 +194,7 @@ public class PlayerController : Entity {
 						ControlMouse ();
 			GlitchCheck();
 				}
+
 
 		//ControlWASD ();
 	}

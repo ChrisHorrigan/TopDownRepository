@@ -4,11 +4,38 @@ using UnityEngine.UI;
 public class AttachmentManagement : MonoBehaviour {
 	public Toggle silencerToggle;
 	public Toggle laserToggle;
-
+	public enum Type {primary,secondary};
+	public Type type;
+	private Gun currentGun;
+	private MenuScript UpRef;
+	void Start()
+	{
+		UpRef=GetComponentInParent<MenuScript>();
+	}
+	public void setGun(Gun gun)
+	{
+		currentGun=gun;
+	}
 	public void MakeAvailable()
 	{
-		silencerToggle.interactable = true;
+		if(currentGun.canSilence)
+			silencerToggle.interactable = true;
+		else
+			silencerToggle.interactable=false;
 		laserToggle.interactable = true;
+	}
+	public void ToggleSilencer()
+	{
+
+		currentGun.ToggleSilencer();
+		if(type==Type.primary)
+			UpRef.primary.UpdateStats(currentGun);
+		else if(type==Type.secondary)
+			UpRef.secondary.UpdateStats(currentGun);
+	}
+	public void ToggleLaser()
+	{
+		currentGun.ToggleLaser();
 	}
 	public void ClearToggles()
 	{

@@ -45,7 +45,7 @@ public class Gun : MonoBehaviour {
 	public Vector3 pointAt;
 	public Vector3 toTarget;
 	public Toggle LaserToggle;
-
+	public bool canSilence=true;
 	public GameObject holder;
 
 	public bool glitching=false;
