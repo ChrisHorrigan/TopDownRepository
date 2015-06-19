@@ -10,13 +10,15 @@ public class Gun : MonoBehaviour {
 	public int magSize=30;
 	public int magazine;
 	public bool reloading;
-	private float reloadTime=1f;
+	public float reloadTime=1f;
 	private float reloadEnd;
 	public LayerMask collisionMask;
 	public Transform bulletSource;
 	public float rpm;
 	public enum GunType {Semi,Burst,Auto,Shotgun};
 	public enum GunClass{Primary,Secondary};
+	public enum Feed{Normal,Pump};
+	public Feed feed;//
 	public GunClass gunClass;
 	public GunType gunType;
 	public Transform shellEjectionPoint;
@@ -165,6 +167,7 @@ public class Gun : MonoBehaviour {
 
 	public void Shoot(){
 			if (CanShoot ()) {
+				
 				if(holder.name=="Player")
 					holder.GetComponent<PlayerController>().MakeNoise(noiseRadius); //make noise that the AI will want to investigate
 				magazine--;
@@ -178,8 +181,8 @@ public class Gun : MonoBehaviour {
 					if (Physics.Raycast (ray, out hit, shotDistance, collisionMask)) {
 						shotDistance=hit.distance;
 						if (hit.collider.GetComponent<Entity> ()&&!hit.collider.isTrigger) {
-							hit.collider.GetComponent<Entity> ().TakeDamage (damage/tracer.Count,ray.direction*-1);	//later also pass in direction so the AI can react
-						}
+							hit.collider.GetComponent<Entity> ().TakeDamage (damage/tracer.Count,ray.direction*-1);	
+						}//
 					}
 				StartCoroutine(RenderTracer (ray.direction*shotDistance,l));//asdfasd
 				}
@@ -236,7 +239,7 @@ public class Gun : MonoBehaviour {
 		}
 	}
 	public void ShootContinuous(){
-		if (gunType != GunType.Semi) {
+		if (gunType != GunType.Semi) {//
 			Shoot ();
 		}
 	}//
@@ -250,8 +253,14 @@ public class Gun : MonoBehaviour {
 						canShoot = false;
 		if (magazine == 0)
 						canShoot = false;
-		if (reloading)
+		if (reloading&&feed==Feed.Normal)
 						canShoot = false;
+		if(reloading&&feed==Feed.Pump)
+		{
+			StopCoroutine("DoReload");
+			reloading=false;
+			canShoot=true;
+		}
 		return canShoot;
 	}
 	IEnumerator RenderTracer(Vector3 hitPoint,LineRenderer tracer){//performance problems...
@@ -271,11 +280,27 @@ public class Gun : MonoBehaviour {
 //		spreadAngle -= jump;
 //		}
 	IEnumerator DoReload(){//
-		print ("Reload started...");//
+		//print ("Reload started...");//
 		//HUD.text = "Reloading...";//
+		if(feed==Feed.Normal){
 		yield return new WaitForSeconds (reloadTime);
 		FinishReload ();
-		print ("Reloaded!");
+		//print ("Reloaded!");
+		}
+		else if(feed==Feed.Pump)
+		{
+			while(magazine<magSize)
+			{
+				if(totalAmmo>0){
+					totalAmmo--;
+					print ("put one in");
+					magazine++;}
+				else
+					break;
+				yield return new WaitForSeconds(reloadTime/magSize);
+			}
+			reloading=false;
+		}
 		//HUD.text = magazine + " | " + totalAmmo;
 		}
 }

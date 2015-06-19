@@ -67,7 +67,7 @@ public class PlayerController : Entity {
 	{
 		yield return new WaitForSeconds (.25f);
 		base.Start ();
-		transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+		transform.position = GameObject.Find ("TeamManager").transform.position;
 		menu=GameObject.Find ("GameManager").GetComponent<PauseScript>();
 		god=GameObject.Find ("TeamManager").GetComponent<TeamManager>();
 		secondaryGun.Holster (hipSpot);//adsffghgh
@@ -131,10 +131,14 @@ public class PlayerController : Entity {
 						/*if (Input.GetKey (KeyCode.K))
 						Die ();*/
 
-						if (!gun.reloading)
-								HUD.text = gun.magazine + " | " + gun.totalAmmo;
-						else
-								HUD.text = "Reloading...";
+						//if (!gun.reloading)
+						if(!gun.reloading)
+							HUD.color=Color.white;	
+						else if (gun.reloading&&gun.feed!=Gun.Feed.Pump)//
+				HUD.color=Color.yellow;//
+						HUD.text = gun.magazine + " | " + gun.totalAmmo;
+						//else
+								//HUD.text = "Reloading...";
 						if (Input.GetButtonDown ("Reload")) {
 								if (gun.CanReload ())
 										gun.StartReload ();
