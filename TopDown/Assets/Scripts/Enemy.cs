@@ -15,7 +15,7 @@ public class Enemy : Entity {
 	public float rotationSpeed=2;
 	private bool fightingPlayer;
 	private Vector3 destination;
-	private bool alarmed;
+	public bool alarmed=false;
 	private bool sentAlarm;
 	private TeamManager boss;
 	public int nextNode;
@@ -36,8 +36,8 @@ public class Enemy : Entity {
 		base.Start ();
 		animator=GetComponent<Animator>();
 		animator.SetFloat("WeaponID",0);
-		lookingAround=false;
-		returningToPost=false;
+		//lookingAround=false;
+		//returningToPost=false;
 		basic=gameObject.GetComponentsInChildren<Node>();
 		nextNode=0;
 		foreach(Node n in basic)
@@ -49,10 +49,10 @@ public class Enemy : Entity {
 		visual=false;
 		boss = this.gameObject.GetComponentInParent<TeamManager> ();
 		target = GameObject.Find ("Player").GetComponent<Transform> ();
-		alarmed=false;
+		//alarmed=false;
 		sentAlarm=false;
 		//fightingPlayer = false;
-		status = Status.patrol;
+		//status = Status.patrol;FADOODLE//d
 		//moving = true;
 		sphere = handSpot.gameObject.GetComponent<SphereCollider> ();
 		light = GetComponent<Light> ();
@@ -201,7 +201,7 @@ public class Enemy : Entity {
 	void MakeCall()
 	{
 		boss.ReceiveCall();//
-		print ("Need backup!");
+		//print ("Need backup!");
 	}
 
 

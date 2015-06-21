@@ -108,6 +108,7 @@ public class PlayerController : Entity {
 
 			HealthBar.text=health.ToString ();
 			if (controller.velocity.magnitude != 0) {//
+				//print (controller.velocity.magnitude.ToString());//
 				gun.minSpread = gun.mainMaxSpread / 2;
 				gun.maxSpread = gun.mainMaxSpread + walkPenalty;
 				
