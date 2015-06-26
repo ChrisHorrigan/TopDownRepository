@@ -127,8 +127,9 @@ public class TeamManager : MonoBehaviour {
 		if(minions.Count<=0&&obj==Objective.Clear)
 		{
 
-			GameControl.control.CompleteLevel(levelID);//ss
+			//GameControl.control.CompleteLevel(levelID);//ss
 			pause.Win ();
+			Win ();
 		}
 	}
 	public void VIPDeath()
@@ -141,8 +142,9 @@ public class TeamManager : MonoBehaviour {
 	{
 		if(other.gameObject.CompareTag("Player")&&VIPdown)
 		{
-			GameControl.control.CompleteLevel(levelID); 
+			//GameControl.control.CompleteLevel(levelID); 
 			pause.Win ();
+			Win ();//
 		}
 	}
 	void Win()

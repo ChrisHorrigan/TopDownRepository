@@ -42,9 +42,9 @@ public class LevelManager : MonoBehaviour {
 		}
 		primary=false;
 		secondary=false;
-		levelsCompleted=GameControl.control.Load ();
-		GameControl.control.Save(levelsCompleted);
-		levelsAvailable=CreateAvailable(levelsCompleted);
+		//levelsCompleted=GameControl.control.Load ();
+		//GameControl.control.Save(levelsCompleted);
+		//levelsAvailable=CreateAvailable(levelsCompleted);
 
 	}
 	public void ChangeMusicVolume(float vol)
@@ -94,30 +94,46 @@ public class LevelManager : MonoBehaviour {
 	void ButtonStati()
 	{
 		if(loadoutPanel.activeSelf){
-		for(int i=0;i<launchButtons.Length;i++)
-		{
-			if(levelsCompleted[i])
-				launchButtons[i].GetComponentInChildren<Text>().color=Color.green;
-			if(levelsAvailable[i]&&secondary&&primary)
-				launchButtons[i].interactable=true;
-			else
-				launchButtons[i].interactable=false;
-			}}
-	}
-	bool[] CreateAvailable(bool[]completed)
-	{
-		bool[]temp=new bool[completed.Length];
-		for(int b = 0;b<temp.Length;b++)
-		{
-			if(completed[b])
-				temp[b]=true;
-			else if(!temp[b])
+//		for(int i=0;i<launchButtons.Length;i++)
+//		{
+//			if(levelsCompleted[i])
+//				launchButtons[i].GetComponentInChildren<Text>().color=Color.green;
+//			if(levelsAvailable[i]&&secondary&&primary)
+//				launchButtons[i].interactable=true;
+//			else
+//				launchButtons[i].interactable=false;
+//			}
+		
+			for(int i=0;i<launchButtons.Length;i++)
 			{
-				temp[b]=true;
-				break;
+				if(PlayerPrefs.GetFloat(i.ToString ())==1)//the level is complete
+				{	
+					launchButtons[i].GetComponentInChildren<Text>().color=Color.green;
+					if(secondary&&primary)
+						launchButtons[i].interactable=true;
+				}
+				else if((PlayerPrefs.GetFloat ((i-1).ToString())==1||i==0)&&secondary&&primary)
+					launchButtons[i].interactable=true;
+				else
+					launchButtons[i].interactable=false;
 			}
+		
 		}
-		return temp;//asdfadsfffff
 	}
+//	bool[] CreateAvailable(bool[]completed)
+//	{
+//		bool[]temp=new bool[completed.Length];
+//		for(int b = 0;b<temp.Length;b++)
+//		{
+//			if(completed[b])
+//				temp[b]=true;
+//			else if(!temp[b])
+//			{
+//				temp[b]=true;
+//				break;
+//			}
+//		}
+//		return temp;//asdfadsfffff
+//	}
 
 }
