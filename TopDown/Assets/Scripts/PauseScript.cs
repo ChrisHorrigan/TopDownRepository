@@ -11,8 +11,9 @@ public class PauseScript : MonoBehaviour {
 	public Canvas deathCanvas;
 	public Canvas winCanvas;
 	public bool paused;
-
+	private GameCamera gamecam;
 	void Start () {
+		gamecam=GetComponentInChildren<GameCamera>();
 		canvas.enabled=false;
 		paused=false;
 		deathCanvas.enabled=false;
@@ -41,6 +42,14 @@ public class PauseScript : MonoBehaviour {
 		else if (Input.GetButtonDown("Pause")&&paused)
 			Resume ();
 	}
+//	public void ChangeMusicVolume(float vol)
+//	{
+//		foreach(AudioSource a in gamecam.audio)
+//		{
+//			a.volume=vol;
+//		}
+//	}
+
 	public void DeathScreen()//would have been better to enable panels rather than canvasses but whatever
 	{
 		deathCanvas.enabled=true;

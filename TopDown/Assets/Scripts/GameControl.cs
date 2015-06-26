@@ -8,9 +8,11 @@ using System.IO;
 public class GameControl : MonoBehaviour {
 	public bool[]levels;
 	public static GameControl control;
+	public bool firstRun;
 	// Use this for initialization
 	void Awake()
 	{
+		firstRun=true;
 		if(control==null)
 		{
 			control=this;
@@ -76,6 +78,7 @@ public class GameControl : MonoBehaviour {
 			return levelso;//asdfasd
 		}
 	}
+
 
 }
 [Serializable]

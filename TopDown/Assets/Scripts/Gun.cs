@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 [RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour {
 	//This class would be used by AI as well so no references to input in here
-
+	public AudioSource[] audio;
 	public int totalAmmo=120;
 	public int magSize=30;
 	public int magazine;
@@ -63,6 +64,7 @@ public class Gun : MonoBehaviour {
 	/// <summary>
 	/// S/	/// </summary>
 	void Start(){//
+		audio=GetComponents<AudioSource>();
 		glitching=false;
 		laserRef = laserPointer.GetComponent<LaserScript> ();
 		laserEquipped = false;  
@@ -188,7 +190,9 @@ public class Gun : MonoBehaviour {
 				}
 				nextPossibleShootTime = Time.time + secondsBetweenShots;
 				if(!silenced)//SILENCER AFFECTING SHOT SOUNDS
-					audio.Play ();
+					audio[0].Play ();
+			else if (silenced)
+				audio[2].Play ();
 				Rigidbody newShell = Instantiate (shell, shellEjectionPoint.position, transform.rotation) as Rigidbody;
 				newShell.AddForce (shellEjectionPoint.forward * Random.Range (150, 200) + bulletSource.forward * Random.Range (-10f, 10f));
 							
@@ -266,12 +270,13 @@ public class Gun : MonoBehaviour {
 	IEnumerator RenderTracer(Vector3 hitPoint,LineRenderer tracer){//performance problems...
 
 		tracer.enabled = true;
-		bulletSource.gameObject.GetComponent<Light>().enabled=true;
+		if(!silenced)
+			bulletSource.gameObject.GetComponent<Light>().enabled=true;
 		tracer.SetPosition (0, bulletSource.position);
 		tracer.SetPosition (1, bulletSource.position+hitPoint);
 		//yield return null;
 	
-		yield return null;//null for just a frame, but that's inconsistent .025f
+		yield return null;//null for just a frame, but that's inconsistent .025ffff
 		bulletSource.gameObject.GetComponent<Light>().enabled=false;
 		tracer.enabled = false;
 		}//
@@ -283,9 +288,10 @@ public class Gun : MonoBehaviour {
 		//print ("Reload started...");//
 		//HUD.text = "Reloading...";//
 		if(feed==Feed.Normal){
+			audio[1].Play ();
 		yield return new WaitForSeconds (reloadTime);
 		FinishReload ();
-		//print ("Reloaded!");
+		//print ("Reloaded!");ff
 		}
 		else if(feed==Feed.Pump)
 		{
@@ -293,7 +299,7 @@ public class Gun : MonoBehaviour {
 			{
 				if(totalAmmo>0){
 					totalAmmo--;
-					print ("put one in");
+					audio[1].Play ();
 					magazine++;}
 				else
 					break;

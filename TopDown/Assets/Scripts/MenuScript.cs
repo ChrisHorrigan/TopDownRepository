@@ -14,9 +14,11 @@ public class MenuScript : MonoBehaviour {
 	public AttachmentManagement secondaries;
 	public Stats primary;
 	public Stats secondary;
+	private GameControl control;
 	// Use this for initialization
 	void Awake() 
 	{
+		control=GameObject.Find ("GameController").GetComponent<GameControl>();
 		pSelected = false;
 //		pLaser.enabled = false;
 		//pSight.enabled = false;
@@ -84,11 +86,12 @@ public class MenuScript : MonoBehaviour {
 	{
 		print ("happeningggg!");
 		}
-	//void Start () {
+	//void Start () {//
 	//aadad
 	//}
 	public void LaunchLevel(int toLaunch)
 	{
+		control.firstRun=false;
 		Application.LoadLevel (toLaunch);
 	}//sdafafdasdfdfgdfgsdfg
 	//

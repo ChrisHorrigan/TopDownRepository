@@ -368,8 +368,9 @@ public class Enemy : Entity {
 		if (status!=Status.combat && gun.magazine <= gun.magazine / 2&&!gun.reloading)
 
 						gun.StartReload ();
-
+		gun.pointAt=target.position;
 		gun.toTarget = gun.bulletSource.forward;
+
 	}
 
 

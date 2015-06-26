@@ -14,13 +14,14 @@ public class TeamManager : MonoBehaviour {
 	private Color lightColor;
 	public List<Light> lights;
 	private Light[] lightsa;
-	private bool alarmActivated;
+	public bool alarmActivated;
 	private float t;
 	private float p;
 	private bool red;
 	private ReinforcementManager reinforcers;
 	public List<Transform> spawnPoints;
 	private GameObject additionalEnemy;
+
 	void Start()
 	{
 		additionalEnemy=(GameObject)Resources.Load ("Enemy");
@@ -144,6 +145,9 @@ public class TeamManager : MonoBehaviour {
 			pause.Win ();
 		}
 	}
-
+	void Win()
+	{
+		PlayerPrefs.SetFloat (levelID.ToString (),1);
+	}
 
 }
