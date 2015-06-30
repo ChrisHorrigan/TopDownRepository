@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour {
 		gun.holder=this.gameObject;
 		}//
 	public virtual void Update(){
-
+		handSpot.rotation=transform.rotation;//dd
 //		if (controller.velocity.magnitude != 0) {//fff
 //						gun.minSpread = gun.mainMaxSpread / 2;
 //						gun.maxSpread = gun.mainMaxSpread + 5f;
