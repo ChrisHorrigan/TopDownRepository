@@ -24,7 +24,7 @@ public class TeamManager : MonoBehaviour {
 
 	void Start()
 	{
-		additionalEnemy=(GameObject)Resources.Load ("Enemy");
+		additionalEnemy=(GameObject)Resources.Load ("EnemyF2000");
 		reinforcers = GetComponentInChildren<ReinforcementManager>();
 		spawnPoints=reinforcers.GetLocations();
 		red=false;
@@ -35,7 +35,8 @@ public class TeamManager : MonoBehaviour {
 		endPoint=GetComponent<SphereCollider>();
 		lightsa=GetComponentsInChildren<Light>();
 		foreach(Light l in lightsa){
-			if(!l.Equals(this.gameObject.GetComponent<Light>()))
+			//if(!l.Equals(this.gameObject.GetComponent<Light>()))
+			if(l.transform.parent.gameObject.name=="Lights")
 				lights.Add(l);
 		}//
 		VIPdown=false;

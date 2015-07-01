@@ -116,7 +116,7 @@ public class Gun : MonoBehaviour {
 		{
 						silencer.gameObject.renderer.enabled = true;
 						damage -= 2;
-						noiseRadius=noiseRadius/4;
+						noiseRadius=noiseRadius/6;
 				} 
 		else 
 		{
@@ -174,7 +174,7 @@ public class Gun : MonoBehaviour {
 					holder.GetComponent<PlayerController>().MakeNoise(noiseRadius); //make noise that the AI will want to investigate
 				magazine--;
 				foreach(LineRenderer l in tracer){
-					float shotDistance = 20;
+					float shotDistance = 50;
 					Recoil ();
 					Ray ray = new Ray (bulletSource.position, bPath*20);
 

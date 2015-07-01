@@ -10,7 +10,7 @@ public class Enemy : Entity {
 	public float range=10f;
 	private SphereCollider sphere;
 	//private bool moving; probably won't need this
-	private Light light;
+	//private Light light;
 	public LayerMask layermasko;
 	public float rotationSpeed=2;
 	private bool fightingPlayer;
@@ -55,9 +55,9 @@ public class Enemy : Entity {
 		//status = Status.patrol;FADOODLE//d
 		//moving = true;
 		sphere = handSpot.gameObject.GetComponent<SphereCollider> ();
-		light = GetComponent<Light> ();
-		light.range = range;
-		light.spotAngle = FOV;
+		//light = GetComponent<Light> ();
+		//light.range = range;
+		//light.spotAngle = FOV;
 		sphere.radius = range;
 		agent = GetComponent<NavMeshAgent> ();
 	}
@@ -87,7 +87,7 @@ public class Enemy : Entity {
 
 						boss.LastKnownPosition=target.position;
 
-						if(angle<=15f){
+						if(angle<=15f&&!gun.reloading){//
 							animator.SetTrigger("ShootAR");
 							gun.ShootContinuous();}
 						if(gun.magazine==0&&!gun.reloading)
@@ -211,7 +211,7 @@ public class Enemy : Entity {
 		lookingAround=true;
 		newForward=Quaternion.AngleAxis(90,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
-		while(elapsedTime<=1.5f)
+		while(elapsedTime<=.75f)
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
@@ -225,7 +225,7 @@ public class Enemy : Entity {
 		oldForward=transform.forward;
 
 
-		while(elapsedTime<=2f)
+		while(elapsedTime<=1f)
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
@@ -238,7 +238,7 @@ public class Enemy : Entity {
 		elapsedTime=0f;
 		newForward=Quaternion.AngleAxis(91,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
-		while(elapsedTime<=1.5f)
+		while(elapsedTime<=.75f)
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
