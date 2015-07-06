@@ -31,7 +31,10 @@ public class MenuScript : MonoBehaviour {
 		//DontDestroyOnLoad (this.gameObject);
 
 	}
-
+	public void CloseGame()
+	{
+		Application.Quit ();
+	}
 	public void setCurrentPrimary(string weaponName)//CURRENT is when the cursor hovers, SELECTED is the one that is clicked
 	{
 		currentPrimary = GameObject.Find (weaponName).GetComponent<Gun> ();
