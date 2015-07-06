@@ -24,7 +24,7 @@ public class AttachmentManagement : MonoBehaviour {
 			silencerToggle.interactable=false;
 		laserToggle.interactable = true;
 	}
-	public void ToggleSilencer()
+	public void ToggleSilencer()//it shouldn't call this if the value is changing by picking a different weapon
 	{
 
 		currentGun.ToggleSilencer();
@@ -35,15 +35,21 @@ public class AttachmentManagement : MonoBehaviour {
 	}
 	public void ToggleLaser()
 	{
+
 		currentGun.ToggleLaser();
+	}
+	public void TestFunction(bool lol)
+	{
+		print ("dynamic bool por favor");
 	}
 	public void ClearToggles()
 	{
-		//if (silencerToggle.isOn)
-						silencerToggle.isOn = false;
+	//fffff
+			silencerToggle.isOn = false;
+		
 
-		//if (laserToggle.isOn)
-						laserToggle.isOn = false;
+
+			laserToggle.isOn = false;
 		
 		//silencerToggle.graphic.enabled = false;
 		//laserToggle.graphic.enabled = false;

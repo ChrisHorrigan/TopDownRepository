@@ -61,6 +61,7 @@ public class MenuScript : MonoBehaviour {
 		primaries.ShowToggles ();
 		primaries.setGun(selectedPrimary);
 	}
+
 	public void setSelectedSecondary(string weaponName)
 	{//
 		sSelected = true;
@@ -69,6 +70,7 @@ public class MenuScript : MonoBehaviour {
 		secondaries.ShowToggles();
 		secondaries.setGun(selectedSecondary);
 	}
+
 	public void DisplayDefault()
 	{
 		if (selectedPrimary != null) {

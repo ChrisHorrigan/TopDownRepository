@@ -142,6 +142,7 @@ public class Enemy : Entity {
 	}
 	public void BecomeAlarmed()
 	{
+		StopCoroutine("RaiseAlarm");
 		alarmed=true;
 		//move speed increases
 	}
@@ -325,7 +326,7 @@ public class Enemy : Entity {
 
 	void Update()
 	{
-
+		//Debug.DrawLine(transform.position,target.position);they all pass this test of sameness
 		if(agent.velocity.magnitude!=0)
 			animator.SetBool("Moving",true);
 		else
@@ -361,7 +362,7 @@ public class Enemy : Entity {
 					StartCoroutine("LookAround");
 			}
 			else{
-				agent.updateRotation=true;
+				agent.updateRotation=true;//
 				agent.SetDestination(boss.LastKnownPosition); }
 		}
 
@@ -369,7 +370,7 @@ public class Enemy : Entity {
 
 						gun.StartReload ();
 		gun.pointAt=target.position;
-		gun.toTarget = gun.bulletSource.forward;
+		//gun.toTarget = gun.bulletSource.forward;fffff
 
 	}
 

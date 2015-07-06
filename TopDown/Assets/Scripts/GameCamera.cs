@@ -9,9 +9,13 @@ public class GameCamera : MonoBehaviour {
 	private TeamManager teammanager;
 	public Slider SFX;
 	public Slider Music;
+	private Vector3 mousePosition;
+	private Vector3 playerPos;
+	private PlayerController player;
 	void Start () {
 		teammanager=GameObject.Find ("TeamManager").GetComponent<TeamManager>();
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		target = GameObject.Find ("Player").transform;
+		player=target.gameObject.GetComponent<PlayerController>();
 		audio=GetComponents<AudioSource>();
 		foreach (AudioSource a in audio)
 		{
@@ -34,14 +38,19 @@ public class GameCamera : MonoBehaviour {
 //		}
 
 
-
+		mousePosition=player.mousePos;
+		playerPos=target.position;
 		if(teammanager.alarmActivated&&!audio[1].isPlaying)
 		{
 			audio[0].Pause ();
 			audio[1].Play ();
 		}
-		cameraTarget = new Vector3 (target.position.x, transform.position.y, target.position.z);
-		transform.position = Vector3.Lerp (transform.position, cameraTarget, Time.deltaTime * 8);//smoothing
+		//
+		//cameraTarget = new Vector3 (target.position.x, transform.position.y, target.position.z);
+		cameraTarget.x=(mousePosition.x+playerPos.x)/2;
+		cameraTarget.z=(mousePosition.z+playerPos.z)/2;
+		cameraTarget.y=transform.position.y;
+		transform.position = Vector3.Lerp (transform.position, cameraTarget, Time.deltaTime * 3);//smoothing
 	}
 	public void ChangeMusicVolume(float vol)
 	{

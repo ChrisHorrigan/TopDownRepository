@@ -114,15 +114,16 @@ public class Gun : MonoBehaviour {
 		silenced = !silenced;
 		if (silenced) 
 		{
+			if(silencer!=null){
 						silencer.gameObject.renderer.enabled = true;
-						damage -= 2;
-						noiseRadius=noiseRadius/6;
+						damage -= 4;
+				noiseRadius=noiseRadius/6;}
 				} 
 		else 
 		{
 						silencer.gameObject.renderer.enabled = false;
 			noiseRadius=noiseRadius*4;
-			damage+=2;
+			damage+=4;
 				}
 	}
 	public void ToggleLaser()

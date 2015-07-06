@@ -10,12 +10,12 @@ public class PlayerController : Entity {
 	public float runSpeed=8;
 	public float rotationSpeed=10;
 	public float crossX;
-	public float crossY;
-	public float walkPenalty=5f;
+	public float crossY;//
+	public float walkPenalty=1f;
 	private float radius;
 	public Transform backSpot;
 	public Transform hipSpot;
-	private Animator animator;
+	private Animator animator;//gffff
 	public Transform eyes;
 	//public Vector3 startPoint;
 	public Gun secondaryGun;
