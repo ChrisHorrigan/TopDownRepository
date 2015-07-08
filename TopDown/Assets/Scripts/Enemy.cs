@@ -154,25 +154,29 @@ public class Enemy : Entity {
 			StopCoroutine("LookAround");
 			StopCoroutine("LookAroundIdle");
 			lookingAround=false;
-			if(!lookingAround)
+			if(!lookingAround){
 				StartCoroutine("CheckBack",direction);
+
+			}
 		}
 		//transform.forward=direction; this was just to make sure the direction detection works
 	}
 
 	public IEnumerator CheckBack(Vector3 direction)
 	{
+
 		float elapsedTime=0f;
 		lookingAround=true;
 		newForward=direction;
 		oldForward=transform.forward;
-		while(elapsedTime<=1f)
+		while(elapsedTime<=1f)//
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
-		lookingAround=false;
+		//f
+
 
 	}
 	public override void Die ()
@@ -268,18 +272,19 @@ public class Enemy : Entity {
 //	}
 	IEnumerator LookAroundIdle()
 	{
+
 		float elapsedTime=0f;
 		lookingAround=true;
-		newForward=nodes[nextNode].transform.forward;
-		oldForward=transform.forward;
-		while(elapsedTime<=1f)
-		{
-			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
-			elapsedTime+=Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
+//		newForward=nodes[nextNode].transform.forward;
+//		oldForward=transform.forward;
+//		while(elapsedTime<=1f)
+//		{
+//			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
+//			elapsedTime+=Time.deltaTime;
+//			yield return new WaitForEndOfFrame();
+//		}
 
-		elapsedTime=0f;
+
 		newForward=Quaternion.AngleAxis(45,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
 		while(elapsedTime<=1.5f)
@@ -289,14 +294,14 @@ public class Enemy : Entity {
 			yield return new WaitForEndOfFrame();
 		}
 		//	transform.forward=newForward;asddasas
-		
+		while(true){
 		//	yield return new WaitForSeconds(1f);fffffj
 		elapsedTime=0f;
 		newForward=Quaternion.AngleAxis(270,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
 		
 		
-		while(elapsedTime<=2f)
+		while(elapsedTime<=3f)
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
@@ -307,9 +312,9 @@ public class Enemy : Entity {
 		//	yield return new WaitForSeconds(1f);
 		
 		elapsedTime=0f;
-		newForward=Quaternion.AngleAxis(45,Vector3.up)*transform.forward;
+		newForward=Quaternion.AngleAxis(90,Vector3.up)*transform.forward;
 		oldForward=transform.forward;
-		while(elapsedTime<=1.5f)
+		while(elapsedTime<=3f)
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
@@ -321,7 +326,7 @@ public class Enemy : Entity {
 		agent.updateRotation=true;
 		status=Status.patrol;
 		
-		lookingAround=false;
+		}
 	}
 
 	void Update()
@@ -344,7 +349,7 @@ public class Enemy : Entity {
 			else if(Vector3.Distance(transform.position,nodes[nextNode].transform.position)<1f)
 				if(!lookingAround)
 				{
-
+				transform.forward=nodes[nextNode].transform.forward;
 				StartCoroutine("LookAroundIdle");
 				}
 		}
@@ -354,12 +359,12 @@ public class Enemy : Entity {
 		}
 		else if (status==Status.investigating){
 
-			if(Vector3.Distance (transform.position,boss.LastKnownPosition)<1f&&!visual) // temporarily means return to psdfdfatrol, but he should actually look around first.
+			if(Vector3.Distance (transform.position,boss.LastKnownPosition)<3f&&!visual) // temporarily means return to psdfdfatrol, but he should actually look around first.
 			{
 				//status=Status.patrol;//time to look around like "wtf"
 				agent.updateRotation=false;
 				if(!lookingAround)
-					StartCoroutine("LookAround");
+					StartCoroutine("LookAround");//
 			}
 			else{
 				agent.updateRotation=true;//
