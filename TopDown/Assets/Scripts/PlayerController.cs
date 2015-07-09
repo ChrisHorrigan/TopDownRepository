@@ -247,10 +247,10 @@ public class PlayerController : Entity {
 			animator.SetBool("Moving",true);
 		else
 			animator.SetBool("Moving",false);
-	motion*=(Input.GetButton("Run"))?runSpeed:walkSpeed; //faster if running
+		motion*=walkSpeed; //faster if running
 		motion += Vector3.up * -8; //gravity (only useful for jumping)
 
-		controller.Move(motion*Time.deltaTime);//actually move
+		controller.Move(motion*Time.deltaTime);//actually movefffff
 
 		}
 

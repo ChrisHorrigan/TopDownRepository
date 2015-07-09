@@ -78,7 +78,7 @@ public class Enemy : Entity {
 					if(hit.collider.gameObject==target.gameObject){//yup, seeing the player
 						StopCoroutine("LookAround");//fffff
 						StopCoroutine("LookAroundIdle");
-
+						StopCoroutine("CheckBack");
 						lookingAround=false;
 						//moving=false;//this makes him not aim at the player at close range ^^^  Won't be a problem when the model is right
 						//fightingPlayer=true;
@@ -176,7 +176,8 @@ public class Enemy : Entity {
 			yield return new WaitForEndOfFrame();
 		}
 		//f
-
+		if(!alarmed&&!sentAlarm)//
+		StartCoroutine("RaiseAlarm");//
 
 	}
 	public override void Die ()
