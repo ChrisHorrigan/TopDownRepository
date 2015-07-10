@@ -87,13 +87,13 @@ public class Enemy : Entity {
 
 						boss.LastKnownPosition=target.position;
 
-						if(angle<=15f&&!gun.reloading){//
+						if(angle<=8f&&!gun.reloading){//
 							animator.SetTrigger("ShootAR");
 							gun.ShootContinuous();}
 						if(gun.magazine==0&&!gun.reloading)
 							gun.StartReload();
 
-					}
+					}//
 					else {
 						if(status==Status.combat){
 							if(!alarmed&&!sentAlarm){
