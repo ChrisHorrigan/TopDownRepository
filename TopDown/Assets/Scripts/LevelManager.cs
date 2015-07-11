@@ -4,18 +4,20 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 	public bool[] levelsCompleted;
 	public bool[] levelsAvailable;
-	public Button[] launchButtons;
+	public Button[] levelButtons;
 	public bool primary;
 	public bool secondary;
 	public GameObject menuPanel;
 	public GameObject loadoutPanel;
 	public GameObject instructionPanel;
 	private GameControl control;
-
+	public Button launchButton;
 	public Slider Music;
 	public Slider SFX;
+	private bool levelSelected;
 	// Use this for initialization
 	void Start () {
+		levelSelected=false;
 		//PlayerPrefs.DeleteAll();
 		if(!PlayerPrefs.HasKey("music"))
 		{
@@ -62,6 +64,10 @@ public class LevelManager : MonoBehaviour {
 		ButtonStati ();
 
 	}
+	public void LevelChosen()
+	{
+		levelSelected=true;
+	}
 	public void ChangePanel(string which)
 	{
 		if(which.Equals("loadout"))
@@ -103,19 +109,20 @@ public class LevelManager : MonoBehaviour {
 //			else
 //				launchButtons[i].interactable=false;
 //			}
-		
-			for(int i=0;i<launchButtons.Length;i++)
+		if(primary&&secondary&&levelSelected)
+				launchButton.interactable=true;//fffff
+			for(int i=0;i<levelButtons.Length;i++)
 			{
 				if(PlayerPrefs.GetFloat(i.ToString ())==1)//the level is complete
 				{	
-					launchButtons[i].GetComponentInChildren<Text>().color=Color.green;
-					if(secondary&&primary)
-						launchButtons[i].interactable=true;
+					levelButtons[i].GetComponentInChildren<Text>().color=Color.green;
+
+						levelButtons[i].interactable=true;
 				}
-				else if((PlayerPrefs.GetFloat ((i-1).ToString())==1||i==0)&&secondary&&primary)
-					launchButtons[i].interactable=true;
+				else if((PlayerPrefs.GetFloat ((i-1).ToString())==1||i==0))
+					levelButtons[i].interactable=true;
 				else
-					launchButtons[i].interactable=false;
+					levelButtons[i].interactable=false;
 			}
 		
 		}

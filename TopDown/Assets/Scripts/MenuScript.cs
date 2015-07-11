@@ -14,6 +14,7 @@ public class MenuScript : MonoBehaviour {
 	public AttachmentManagement secondaries;
 	public Stats primary;
 	public Stats secondary;
+	private int levelSelected;
 	private GameControl control;
 	// Use this for initialization
 	void Awake() 
@@ -30,6 +31,10 @@ public class MenuScript : MonoBehaviour {
 		sSelected = false;
 		//DontDestroyOnLoad (this.gameObject);
 
+	}
+	public void ToggleFullScreen()
+	{
+		Screen.fullScreen=!Screen.fullScreen;
 	}
 	public void CloseGame()
 	{
@@ -94,10 +99,14 @@ public class MenuScript : MonoBehaviour {
 	//void Start () {//
 	//aadad
 	//}
-	public void LaunchLevel(int toLaunch)
+	public void setLevel(int toLaunch)
+	{
+		levelSelected=toLaunch;
+	}
+	public void LaunchLevel()
 	{
 		control.firstRun=false;
-		Application.LoadLevel (toLaunch);
+		Application.LoadLevel (levelSelected);
 	}//sdafafdasdfdfgdfgsdfg
 	//
 
