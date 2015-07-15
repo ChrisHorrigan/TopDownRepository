@@ -111,18 +111,19 @@ public class LevelManager : MonoBehaviour {
 //			}
 		if(primary&&secondary&&levelSelected)
 				launchButton.interactable=true;//fffff
-			for(int i=0;i<levelButtons.Length;i++)
+			for(int i=0;i<levelButtons.Length;i++)//used to be 0 to i<length
 			{
-				if(PlayerPrefs.GetFloat(i.ToString ())==1)//the level is complete
+				if(PlayerPrefs.GetFloat((i+1).ToString ())==1)//the level is complete
 				{	
 					levelButtons[i].GetComponentInChildren<Text>().color=Color.green;
 
-						levelButtons[i].interactable=true;
+						levelButtons[i].interactable=true;//
 				}
-				else if((PlayerPrefs.GetFloat ((i-1).ToString())==1||i==0))
-					levelButtons[i].interactable=true;
+				else if((PlayerPrefs.GetFloat ((i).ToString())==1||i==0)){
+
+					levelButtons[i].interactable=true;}
 				else
-					levelButtons[i].interactable=false;
+					levelButtons[i].interactable=false;//
 			}
 		
 		}

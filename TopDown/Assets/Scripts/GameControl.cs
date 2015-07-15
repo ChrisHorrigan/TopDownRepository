@@ -12,11 +12,13 @@ public class GameControl : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
+
 		firstRun=true;
 		if(control==null)
 		{
 			control=this;
 			DontDestroyOnLoad(gameObject);
+
 		}
 		else if (control!=this)
 		{

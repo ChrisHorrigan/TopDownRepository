@@ -101,6 +101,7 @@ public class PlayerController : Entity {
 	public override void Die()
 	{
 		menu.DeathScreen();
+		HealthBar.text=health.ToString ();
 	}
 	void Update () {
 		if (inGame) {
