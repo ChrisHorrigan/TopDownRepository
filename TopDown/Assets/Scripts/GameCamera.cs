@@ -28,7 +28,8 @@ public class GameCamera : MonoBehaviour {
 	private IEnumerator MusicDelay()
 	{
 		yield return new WaitForSeconds(1);
-		audio[0].Play();
+		if(!teammanager.alarmActivated)
+			audio[0].Play();
 	}
 	// Update is called once per framefdgssfg
 	void Update () {

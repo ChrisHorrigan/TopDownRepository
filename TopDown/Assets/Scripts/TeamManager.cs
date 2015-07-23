@@ -3,27 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 public class TeamManager : MonoBehaviour {
 	public int levelID;
-	public enum Objective {Clear,VIP};
+	public enum Objective {Clear,VIP,File};
 	public Objective obj;
 	private Vector3 lastKnownPosition;
 	public List<Enemy> minions;
 	private Enemy[] basic;
 	public PauseScript pause;
 	private bool VIPdown;
+	private bool FileGrabbed;
 	private SphereCollider endPoint;
 	private Color lightColor;
 	public List<Light> lights;
 	private Light[] lightsa;
-	public bool alarmActivated;
+	public bool alarmActivated=false;
 	private float t;
 	private float p;
 	private bool red;
 	private ReinforcementManager reinforcers;
 	public List<Transform> spawnPoints;
 	private GameObject additionalEnemy;
-
+	private bool cooldown;
 	void Start()
 	{
+		cooldown=true;
 		additionalEnemy=(GameObject)Resources.Load ("EnemyF2000");
 		reinforcers = GetComponentInChildren<ReinforcementManager>();
 		spawnPoints=reinforcers.GetLocations();
@@ -31,7 +33,7 @@ public class TeamManager : MonoBehaviour {
 		t=0;
 		p=20;
 		lightColor=Color.white;
-		alarmActivated=false;
+		//alarmActivated=false;
 		endPoint=GetComponent<SphereCollider>();
 		lightsa=GetComponentsInChildren<Light>();
 		foreach(Light l in lightsa){
@@ -39,12 +41,13 @@ public class TeamManager : MonoBehaviour {
 			if(l.transform.parent.gameObject.name=="Lights")
 				lights.Add(l);
 		}//
+		FileGrabbed=false;
 		VIPdown=false;
 		basic=gameObject.GetComponentsInChildren<Enemy>();//aaa
 		foreach(Enemy e in basic){
 			minions.Add (e);
 		}
-
+		//
 	}
 	void Update()
 	{
@@ -106,12 +109,22 @@ public class TeamManager : MonoBehaviour {
 	}
 	public void DetectNoise(Vector3 center,float radius)
 	{
+		if(cooldown){
+			cooldown=false;
+			StartCoroutine("ShotCooldown");
 		lastKnownPosition=center;
+
 		foreach(Enemy e in minions)
 		{
 			if(e.status!=Enemy.Status.investigating&&e.status!=Enemy.Status.combat&&Vector3.Distance(e.transform.position,center)<=radius)
 				e.CallToInvestigate();
 		}
+		}
+	}
+	IEnumerator ShotCooldown()
+	{
+		yield return new WaitForSeconds(5f);
+		cooldown=true;
 	}
 	public void ReceiveCall()
 	{
@@ -139,9 +152,13 @@ public class TeamManager : MonoBehaviour {
 		//GameControl.control.CompleteLevel(levelID); it's not over yet!
 		//pause.Win ();
 	}
+	public void FileGrab()
+	{
+		FileGrabbed=true;
+	}
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.CompareTag("Player")&&VIPdown)
+		if(other.gameObject.name=="Player"&&(VIPdown||FileGrabbed))
 		{
 			//GameControl.control.CompleteLevel(levelID); 
 			pause.Win ();

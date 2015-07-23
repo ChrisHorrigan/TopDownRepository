@@ -29,9 +29,10 @@ public class Enemy : Entity {
 	private Vector3 oldForward;
 	private bool returningToPost;
 
+	public bool turnable=true;
 	private Animator animator;
 
-	void Start()
+	public override void Start()
 	{
 		base.Start ();
 		animator=GetComponent<Animator>();
@@ -169,14 +170,14 @@ public class Enemy : Entity {
 		lookingAround=true;
 		newForward=direction;
 		oldForward=transform.forward;
-		while(elapsedTime<=1f)//
+		while(elapsedTime<=2f)//
 		{
 			transform.forward=Vector3.Slerp(oldForward,newForward,elapsedTime);
 			elapsedTime+=Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
 		//f
-		if(!alarmed&&!sentAlarm)//
+		if(!alarmed&&!sentAlarm)//fff
 		StartCoroutine("RaiseAlarm");//
 
 	}
@@ -295,6 +296,7 @@ public class Enemy : Entity {
 			yield return new WaitForEndOfFrame();
 		}
 		//	transform.forward=newForward;asddasas
+
 		while(true){
 		//	yield return new WaitForSeconds(1f);fffffj
 		elapsedTime=0f;
@@ -327,7 +329,8 @@ public class Enemy : Entity {
 		agent.updateRotation=true;
 		status=Status.patrol;
 		
-		}
+			}//
+
 	}
 
 	void Update()
@@ -350,6 +353,7 @@ public class Enemy : Entity {
 			else if(Vector3.Distance(transform.position,nodes[nextNode].transform.position)<1f)
 				if(!lookingAround)
 				{
+				//agent.Stop ();
 				transform.forward=nodes[nextNode].transform.forward;
 				StartCoroutine("LookAroundIdle");
 				}

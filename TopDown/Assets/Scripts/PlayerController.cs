@@ -11,11 +11,11 @@ public class PlayerController : Entity {
 	public float rotationSpeed=10;
 	public float crossX;
 	public float crossY;//
-	public float walkPenalty=1f;
+	public float walkPenalty=.7f;
 	private float radius;
 	public Transform backSpot;
 	public Transform hipSpot;
-	private Animator animator;//gffff
+	private Animator animator;//gffffffff
 	public Transform eyes;
 	//public Vector3 startPoint;
 	public Gun secondaryGun;
@@ -44,12 +44,14 @@ public class PlayerController : Entity {
 //		base.Start ();
 //		secondaryGun.Holster (hipSpot);
 		StartCoroutine ("setCam");
+
 		//inGame = true;
 		//cam = Camera.main;
 		HUD.enabled = true;
 		HealthBar.enabled=true;
 
 		}//
+
 	public void MakeNoise(float radius)
 	{
 		god.DetectNoise(transform.position,radius);
@@ -66,7 +68,10 @@ public class PlayerController : Entity {
 	IEnumerator setCam()//dffh
 	{
 		yield return new WaitForSeconds (.25f);
-		base.Start ();
+		//base.Start ();//THIS GUY IS THE PROBLEM.
+		gun = primaryGun;
+		gun.ReadyUp (handSpot);
+		gun.holder=this.gameObject;
 		transform.position = GameObject.Find ("TeamManager").transform.position;
 		menu=GameObject.Find ("GameManager").GetComponent<PauseScript>();
 		god=GameObject.Find ("TeamManager").GetComponent<TeamManager>();
@@ -207,7 +212,7 @@ public class PlayerController : Entity {
 
 	void HolsterGun(Gun toHolster)
 	{
-
+		toHolster.StopCoroutine("DoReload");//
 		if (toHolster.gunClass == Gun.GunClass.Primary)
 						toHolster.Holster (backSpot);
 		else if (toHolster.gunClass == Gun.GunClass.Secondary)

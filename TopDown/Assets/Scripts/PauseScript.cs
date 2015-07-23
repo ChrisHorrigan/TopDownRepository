@@ -56,8 +56,14 @@ public class PauseScript : MonoBehaviour {
 		player.enabled=false;//asdff
 		if(player.gameObject.GetComponentInChildren<LaserScript>()!=null)
 			player.gameObject.GetComponentInChildren<LaserScript>().enabled=false;
-		Time.timeScale=0;
+		StartCoroutine("DeathDelay");
+		//Time.timeScale=0;
 		Screen.showCursor=true;
+	}
+	 IEnumerator DeathDelay()
+	{
+		yield return new WaitForSeconds(.25f);//
+		Time.timeScale=0;//
 	}
 	public void Win()
 	{
