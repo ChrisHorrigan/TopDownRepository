@@ -37,9 +37,15 @@ public class Entity : MonoBehaviour {
 		if (health <= 0)
 			Die ();
 	}
-	public virtual void Die()
+	IEnumerator Death()
 	{
-		Debug.Log ("Dead");
+		yield return new WaitForSeconds(.25f);
 		Destroy (gameObject);
 	}
+	public virtual void Die()
+	{
+		StartCoroutine("Death");
+		//Destroy (gameObject);
+	}
+
 }

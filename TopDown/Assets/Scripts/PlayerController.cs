@@ -213,6 +213,7 @@ public class PlayerController : Entity {
 	void HolsterGun(Gun toHolster)
 	{
 		toHolster.StopCoroutine("DoReload");//
+		toHolster.reloading=false;
 		if (toHolster.gunClass == Gun.GunClass.Primary)
 						toHolster.Holster (backSpot);
 		else if (toHolster.gunClass == Gun.GunClass.Secondary)

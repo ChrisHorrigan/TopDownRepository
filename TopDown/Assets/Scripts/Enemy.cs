@@ -183,10 +183,12 @@ public class Enemy : Entity {
 	}
 	public override void Die ()
 	{
+		StopCoroutine("RaiseAlarm");
 		base.Die ();
 		boss.LoseMember(this);
-		StopCoroutine("RaiseAlarm");
+
 	}
+
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject == target.gameObject) {

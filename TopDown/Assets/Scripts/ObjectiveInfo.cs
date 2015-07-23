@@ -42,7 +42,7 @@ public class ObjectiveInfo : MonoBehaviour {
 			texto.text="Level 10: House Call [VIP]\nThe target is in witness protection and heavily guarded.  He's the only link to us that the authorities have and he has to go.  You know how it is -- no loose ends.";
 			break;
 		case 11:
-			texto.text="Level 11: Absolution [Clear]\n<i>They made a good point about eliminating loose ends.  This organization is a serious liability to me.  I think it's time to disappear and kill all the witnesses.</i>";
+			texto.text="Level 11: Absolution [Clear]\n<i>They made a good point about eliminating loose ends.  This organization knows too much about me.  I think it's time to kill all the witnesses and disappear.</i>";
 			break;
 		}//
 	}//fff

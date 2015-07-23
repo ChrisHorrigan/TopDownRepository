@@ -123,7 +123,7 @@ public class TeamManager : MonoBehaviour {
 	}
 	IEnumerator ShotCooldown()
 	{
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(2f);
 		cooldown=true;
 	}
 	public void ReceiveCall()
